@@ -13,17 +13,17 @@ jobs:
       - run: docker build -t vojislav86/docker-frontend -f Dockerfile.dev .
       - run: docker run -e CI=true vojislav86/docker-frontend npm test
 
-#      - name: Generate deployment package
-#        run: zip -r deploy.zip . -x '*.git*'
-#
-#      - name: Deploy to EB
-#        uses: einaregilsson/beanstalk-deploy@v18
-#        with:
-#          aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
-#          aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
-#          application_name: docker-frontend
-#          environment_name: Docker-Frontend-env
-#          existing_bucket_name: set-me-up
-#          region: us-east-1
-#          version_label: ${{ github.sha }}
-#          deployment_package: deploy.zip
+      - name: Generate deployment package
+        run: zip -r deploy.zip . -x '*.git*'
+
+      - name: Deploy to EB
+        uses: einaregilsson/beanstalk-deploy@v18
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
+          application_name: docker-frontend
+          environment_name: Docker-Frontend-env
+          existing_bucket_name: elasticbeanstalk-eu-central-1-162638885138
+          region: eu-central-1
+          version_label: ${{ github.sha }}
+          deployment_package: deploy.zip
