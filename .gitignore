@@ -21,3 +21,45 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+/src/main/java/com/boom/ng/cop/soap/
+!**/src/test/**/target/
+/src/main/java/META-INF/sun-jaxb.episode
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+mvnw
+mvnw.cmd
+.mvn
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+###H2 test db###
+/testdb.mv.db
